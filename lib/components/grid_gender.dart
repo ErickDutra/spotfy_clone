@@ -27,7 +27,7 @@ class GridGender extends StatelessWidget {
                     ),
                     Container(
                       margin: EdgeInsets.all(8),
-                      child: Text('Rock'),
+                      child: Text('Rock', style: TextStyle(fontWeight: FontWeight.bold),),
                     ),
                   ],
                 ),
@@ -50,7 +50,7 @@ class GridGender extends StatelessWidget {
                     ),
                     Container(
                       margin: EdgeInsets.all(8),
-                      child: Text('Rap'),
+                      child: Text('Rap', style: TextStyle(fontWeight: FontWeight.bold),),
                     ),
                   ],
                 ),
@@ -77,7 +77,7 @@ class GridGender extends StatelessWidget {
                     ),
                     Container(
                       margin: EdgeInsets.all(8),
-                      child: Text('Psytrance'),
+                      child: Text('Psytrance', style: TextStyle(fontWeight: FontWeight.bold),),
                     ),
                   ],
                 ),
@@ -100,7 +100,7 @@ class GridGender extends StatelessWidget {
                     ),
                     Container(
                       margin: EdgeInsets.all(8),
-                      child: Text('Reggae'),
+                      child: Text('Reggae', style: TextStyle(fontWeight: FontWeight.bold),),
                     ),
                   ],
                 ),
@@ -127,7 +127,7 @@ class GridGender extends StatelessWidget {
                     ),
                     Container(
                       margin: EdgeInsets.all(8),
-                      child: Text('Trap'),
+                      child: Text('Trap', style: TextStyle(fontWeight: FontWeight.bold),),
                     ),
                   ],
                 ),
@@ -150,7 +150,7 @@ class GridGender extends StatelessWidget {
                     ),
                     Container(
                       margin: EdgeInsets.all(8),
-                      child: Text('Classic'),
+                      child: Text('Classic', style: TextStyle(fontWeight: FontWeight.bold),),
                     ),
                   ],
                 ),
