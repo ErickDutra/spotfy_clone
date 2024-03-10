@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:spotfy_clone/components/app_bar.dart';
+import 'package:spotfy_clone/components/box_playlist.dart';
 import 'package:spotfy_clone/components/carrosel.dart';
 import 'package:spotfy_clone/components/grid_gender.dart';
 
@@ -34,7 +36,7 @@ class MyHome extends StatelessWidget {
         children: [
           GridGender(),
           CarroselImage(),
-          Container(child: Text('oi'),)
+          BoxPlaylist()
         ],
       ),
     );

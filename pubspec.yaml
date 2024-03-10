@@ -65,6 +65,11 @@ flutter:
     - assets/obito.jpg
     - assets/fly.jpg
     - assets/profile.png
+    - assets/show.jpg
+    - assets/play.png
+    - assets/falante_mudo.png
+    - assets/back.png
+    - assets/advance.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
