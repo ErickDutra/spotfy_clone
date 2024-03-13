@@ -8,13 +8,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int pageAtual = 0;
+  int pageActual = 0;
   late PageController pc;
 
   @override
   void initState() {
     super.initState();
-    pc = PageController(initialPage: pageAtual);
+    pc = PageController(initialPage: pageActual);
+  }
+
+  setPageActual(page) {
+    setState(() {
+      pageActual = page;
+    });
   }
 
   @override
@@ -33,13 +39,9 @@ class _HomePageState extends State<HomePage> {
           children: [
             Container(
               decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                    color: Colors.white
-                  ),
-                  
-                )
-              ),
+                  border: Border(
+                bottom: BorderSide(color: Colors.white),
+              )),
               margin: EdgeInsets.only(bottom: 1),
               child: Row(
                 children: [
@@ -53,12 +55,10 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Text(
                         'Neil Armstrong',
-                        style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
                       ),
-                      Text('Ver Perfil',
-                      style:
-                            TextStyle( fontSize: 13))
+                      Text('Ver Perfil', style: TextStyle(fontSize: 13))
                     ],
                   )
                 ],
@@ -70,10 +70,8 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
             ),
             ListTile(
-              
-              leading: Container(
-                height: 24,
-                child: Image.asset('assets/clock.png')),
+              leading:
+                  Container(height: 24, child: Image.asset('assets/clock.png')),
               title: Text('Seu Historico'),
               onTap: () {},
             ),
@@ -87,10 +85,15 @@ class _HomePageState extends State<HomePage> {
       ),
       body: PageView(
         controller: pc,
-        children: [MainHomePage()],
+        children: [MainHomePage(),
+        Container(child: Text('isso'),),
+        Container(child: Text('isso2'),)
+        
+        ],
+        onPageChanged: setPageActual,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: pageAtual,
+        currentIndex: pageActual,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Início'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Buscar'),
