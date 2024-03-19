@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:spotfy_clone/components/button_app_bar.dart';
+import 'package:spotfy_clone/components/draw_bar.dart';
 import 'package:spotfy_clone/components/main_home.dart';
+import 'package:spotfy_clone/components/my_search.dart';
+import 'package:spotfy_clone/components/top_bar_search.dart';
+import 'package:spotfy_clone/components/top_library.dart';
+import 'package:spotfy_clone/components/my_library.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -23,6 +28,18 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  Widget setTitle(void Function(int) setPageActual) {
+    int currentPage = pageActual;
+    if (currentPage == 0) {
+      return MyButtonBar();
+    } else if (currentPage == 1) {
+      return TopSearch();
+    } else if (currentPage == 2) {
+      return TopLibrary();
+    }
+    return Container();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,62 +50,14 @@ class _HomePageState extends State<HomePage> {
               icon: Image.asset('assets/profile.png'),
             );
           }),
-          title: MyButtonBar()),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  border: Border(
-                bottom: BorderSide(color: Colors.white),
-              )),
-              margin: EdgeInsets.only(bottom: 1),
-              child: Row(
-                children: [
-                  Container(
-                    height: 40,
-                    margin: EdgeInsets.all(8),
-                    child: Image.asset('assets/profile.png'),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Neil Armstrong',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
-                      ),
-                      Text('Ver Perfil', style: TextStyle(fontSize: 13))
-                    ],
-                  )
-                ],
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.bolt),
-              title: Text('Novidades'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading:
-                  Container(height: 24, child: Image.asset('assets/clock.png')),
-              title: Text('Seu Historico'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Configurações e privacidade'),
-              onTap: () {},
-            ),
-          ],
-        ),
-      ),
+          title: setTitle(setPageActual)),
+      drawer: MyDrawBar(),
       body: PageView(
         controller: pc,
-        children: [MainHomePage(),
-        Container(child: Text('isso'),),
-        Container(child: Text('isso2'),)
-        
+        children: [
+          MainHomePage(),
+          MySearch(),
+          MyLibrary(),
         ],
         onPageChanged: setPageActual,
       ),
@@ -102,7 +71,7 @@ class _HomePageState extends State<HomePage> {
         ],
         onTap: (page) {
           pc.animateToPage(page,
-              duration: Duration(milliseconds: 400), curve: Curves.bounceInOut);
+              duration: Duration(milliseconds: 001), curve: Curves.linear);
         },
       ),
     );
